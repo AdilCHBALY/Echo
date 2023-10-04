@@ -58,14 +58,14 @@ export const InviteModal = () => {
 
     return (
         <Dialog open={isModalOpen} onOpenChange={onClose}>
-            <DialogContent className='bg-white text-black p-0 overflow-hidden'>
+            <DialogContent className='bg-primary-foreground text-primary p-0 overflow-hidden'>
                 <DialogHeader className='pt-8 px-6'>
                     <DialogTitle className='text-2xl text-center font-bold'>
                         Invite Friends to {data.server?.name}
                     </DialogTitle>
                 </DialogHeader>
                 <div className='p-6'>
-                    <Label className='uppercase text-sm font-bold text-zinc-500 dark:text-secondary/70'>
+                    <Label className='uppercase text-sm font-bold text-primary'>
                         SEND A SERVER INVITE LINK TO A FRIEND
                     </Label>
                     <div className='flex items-center mt-2 gap-x-2'>
@@ -74,16 +74,16 @@ export const InviteModal = () => {
                         className="bg-zinc-300/50 border-0 focus-visible:ring-0 text-black focus-visible:ring-offset-0"  value={inviteUrl} />
                         <Button
                         disabled={isLoading}
-                         onClick={onCopy} size="icon">
+                        onClick={onCopy} size="icon">
                             {copied ? <Check className='h-5 w-5 text-emerald-500' /> : <Copy className='h-5 w-5' /> }
                         </Button>
                     </div>  
                     <Button 
                     onClick={onGenerate}
                     disabled={isLoading}
-                    variant="link" size="sm" className='text-xs text-zinc-500 mt-4' >
+                    variant="link" size="sm" className='text-xs text-zinc-500 dark:text-zinc-400 mt-4' >
                         Generate a new Link
-                        <RefreshCw className='h-4 w-4 ml-2 hover:text-zinc-700' />
+                        <RefreshCw className='h-4 w-4 ml-2 hover:text-zinc-700 dark:hover:text-zinc-600' />
                     </Button>
                 </div>
             </DialogContent>

@@ -1,6 +1,5 @@
 "use client"
 
-import { Server } from "@prisma/client"
 import ActionTip from "../ActionTip"
 import { cn } from "@/lib/utils"
 import { useParams,useRouter } from "next/navigation"
@@ -37,7 +36,7 @@ const NavigationItem:React.FC<NavigationItemProps> = ({
                 )} />
 
                 <div className={cn("relative group flex mx-3 h-[48px] w-[48px] rounded-[24px] group-hover:rounded-[16px] overflow-hidden transition-all" ,params.serverId === id && "bg-primary/10 text-primary rounded-[16px]" 
-                 )}>
+                    )}>
                     <Image
                         fill
                         alt="Image"

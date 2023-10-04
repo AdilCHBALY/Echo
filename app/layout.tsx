@@ -5,6 +5,8 @@ import { ClerkProvider } from '@clerk/nextjs'
 import { ThemeProvider } from '@/components/providers/theme-provider'
 import { cn } from '@/lib/utils'
 import ModalProvider from '@/components/providers/ModalProvider'
+import { SocketProvider } from '@/components/providers/SocketProvider'
+import QueryProvider from '@/components/providers/QueryProvider'
 
 const inter = Poppins({
   subsets: ['latin'],
@@ -26,8 +28,12 @@ export default function RootLayout({
       <html lang="en">
         <body className={cn(inter.className,`bg-white dark:bg-[#1d1e1f]`)}>
           <ThemeProvider attribute='class' defaultTheme='system' enableSystem>
-            <ModalProvider />
-            {children}
+            <SocketProvider>
+              <QueryProvider>
+                <ModalProvider />
+                {children}
+              </QueryProvider>
+            </SocketProvider>
           </ThemeProvider>
         </body>
       </html>
